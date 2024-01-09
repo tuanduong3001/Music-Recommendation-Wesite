@@ -1,0 +1,106 @@
+export const MusicList = [
+    {
+        id: 1,
+        title: "New Songs",
+        data: [
+            {
+                id: 1,
+                title: "Intro - The Way Of Waking Up (feat. Alan Watts)",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                view: 12345,
+                duration: 135,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 2,
+                title: "Geisha",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                view: 32154,
+                duration: 90,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 3,
+                title: "Voyage I - Waterfall",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                view: 5123123,
+                duration: 123,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 4,
+                title: "The Music In You",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                view: 21355,
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                duration: 111,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 5,
+                title: "The Calm Before The Storm",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                view: 56124,
+                duration: 122,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 6,
+                title: "No Pain, No Gain",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                view: 61234,
+                duration: 121,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+              {
+                id: 7,
+                title: "Voyage II - Satori",
+                album: "Wake Up",
+                artist: "The Kyoto Connection",
+                genre: "Electronic",
+                view: 618745,
+                source: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/01_-_Intro_-_The_Way_Of_Waking_Up_feat_Alan_Watts.mp3",
+                image: "https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg",
+                trackNumber: 1,
+                totalTrackCount: 13,
+                duration: 155,
+                site: "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/"
+              },
+        ]
+    }
+]

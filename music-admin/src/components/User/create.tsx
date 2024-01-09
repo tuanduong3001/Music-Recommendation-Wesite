@@ -1,0 +1,177 @@
+import React, { useRef, useState } from 'react';
+import { styled, Box, BoxProps, TextField, alpha, FormControl, Button, InputLabel, Stack } from '@mui/material';
+import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useAppDispatch, useAppSelector } from '../../stores/hook';
+import dayjs, { Dayjs } from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { setField, setReset } from '../../reducers/reset';
+import CreateFilmInput from '../../Inputs/createFilmInput';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { createUserSchema } from '../../helpers/validation';
+import CreateOptionInput from '../../Inputs/createOptionInput';
+import { CreateNewUser } from '../../apis/user';
+
+const Container = styled(Box)<BoxProps>({
+    width: '50%',
+    height: '80%',
+    background: '#fff',
+    borderRadius: '20px',
+    zIndex: '100',
+    overflowY: 'auto',
+    position: 'relative',
+  });
+  const MainWrapper = styled(Box)<BoxProps>({
+    margin: '20px auto',
+    maxWidth: '70%',
+    textAlign: 'center',
+  
+    position: 'relative',
+  });
+  const Label = styled(Box)<BoxProps>({
+    fontWeight: '700',
+    fontSize: '24px',
+    color: '#252733',
+    lineHeight: '150%',
+    textAlign: 'center',
+  });
+  const CloseIcon = styled(Box)<BoxProps>({
+    position: 'absolute',
+    right: '4%',
+    top: '4%',
+    cursor: 'pointer',
+  });
+  interface User {
+    name: string;
+    email: string;
+    password: string;
+    dayOfBirth: Dayjs | null;
+    gender:string
+  }
+  export const CreateUser = () => {
+    const dispatch = useAppDispatch();
+    const reset = useAppSelector((state: any) => state.reset.reset);
+    const [value, setValue] = React.useState<User>({
+      name: '',
+      email: '',
+      password: '',
+      dayOfBirth:  dayjs('2014-08-18T21:11:54'),
+      gender: ''
+    });
+    const {
+      setError,
+      handleSubmit,
+      control,
+      formState: { errors, isDirty, isValid },
+    } = useForm<User>({
+      mode: 'onChange',
+      defaultValues: {
+        name: '',
+        email: '',
+        password: '',
+        dayOfBirth:  dayjs('2014-08-18T21:11:54'),
+        gender: ''
+      },
+      resolver: yupResolver(createUserSchema),
+    });
+  
+    const handleCreateUser = async () => {
+      const bd1 = value.dayOfBirth!.year() + "-" + (value.dayOfBirth!.month() + 1 < 10 ? "0" +
+       (value.dayOfBirth!.month() + 1) :  value.dayOfBirth!.month() + 1) + "-" +(value.dayOfBirth!.date() < 10 ? "0" + 
+       value.dayOfBirth!.date()  : value.dayOfBirth!.date() )
+        await CreateNewUser(value.name, value.email, value.password, bd1, Number(value.gender));
+      dispatch(setField(null));
+      dispatch(setReset(!reset));
+    };
+      const handleChange = (newValue: Dayjs | null) => {
+        console.log("day:", newValue)
+        setValue({...value, dayOfBirth: newValue});
+      };
+    return (
+      <Container>
+        <MainWrapper>
+          <Label>Tạo người dùng</Label>
+          <FormControl variant="standard" sx={{ width: '100%', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+            Tên
+            </InputLabel>
+            <CreateFilmInput
+              onChange1={(e: any) => setValue({ ...value, name: e.target.value })}
+              requiredIcon
+              name="name"
+              label="Name"
+              control={control}
+              placeholder="Tên"
+            />
+            {/* <BootstrapInput value={value.name} onChange={(e:any)=> setValue({...value,name:e.target.value})} placeholder='Enter Name' id="bootstrap-input" /> */}
+          </FormControl>
+          <FormControl variant="standard" sx={{ width: '100%', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+              Email
+            </InputLabel>
+            <CreateFilmInput
+              onChange1={(e: any) => setValue({ ...value, email: e.target.value })}
+              requiredIcon
+              name="email"
+              label="Email"
+              control={control}
+              placeholder="Email"
+            />
+            {/* <BootstrapInput value={value.email} onChange={(e:any)=> setValue({...value,email:e.target.value})} placeholder='Enter Email' id="bootstrap-input" /> */}
+          </FormControl>
+          <FormControl variant="standard" sx={{width: "100%", marginTop:"20px"}}>
+            
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={['DatePicker']} >
+                    <DatePicker
+                    label="Ngày sinh"
+                    format="MM/DD/YYYY"
+                    value={value.dayOfBirth ? value.dayOfBirth :dayjs('2022-04-17')}
+                    onChange={handleChange}
+                    defaultValue={dayjs('2022-04-17')}
+                    />
+                </DemoContainer>
+          
+            </LocalizationProvider>
+             </FormControl>
+             <FormControl variant="standard" sx={{ width: '100%', marginTop: '10px' }}>
+                <CreateOptionInput  onChange1={(event: any, item: any) => {
+                    console.log("value:",value)
+                    setValue({...value, gender: String(item.id)})
+                }} 
+                options={[{id: 1, name: "Male"},{id: 2, name: "Female"}]} requiredIcon 
+                name="gender" label="Giới tính" control={control} placeholder="Enter Gender " />
+            </FormControl>
+          <FormControl variant="standard" sx={{ width: '100%', marginTop: '10px' }}>
+            <InputLabel shrink htmlFor="bootstrap-input">
+            Mật khẩu
+            </InputLabel>
+            <CreateFilmInput
+              onChange1={(e: any) => setValue({ ...value, password: e.target.value })}
+              requiredIcon
+              name="password"
+              label="Password"
+              control={control}
+              placeholder=" Mật khẩu"
+            />
+            {/* <BootstrapInput value={value.password} onChange={(e:any)=> setValue({...value,password:e.target.value})} placeholder='Enter Password' id="bootstrap-input" /> */}
+          </FormControl>
+  
+          <Button
+            variant="contained"
+            disabled={!isValid}
+            onClick={handleSubmit(handleCreateUser)}
+            sx={{ marginTop: '10px' }}
+          >
+            Tạo
+          </Button>
+        </MainWrapper>
+        <CloseIcon>
+          <HighlightOffOutlinedIcon onClick={() => dispatch(setField(null))} />
+        </CloseIcon>
+      </Container>
+    );
+  };

@@ -1,0 +1,131 @@
+.recommend-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.recommend-item-name{
+    font-size: 16px;
+    color: #fff;
+}
+.recommend-item-name:hover, .recommend-item-artist-name:hover{
+    color: aqua;
+}
+.recommend-item-artist-name{
+    font-size: 14px;
+    color: #ccc;
+}
+.song-url{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.song-url span{
+    margin: 0 10px;
+}
+.recommend-item-actions svg{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.recommend-item-actions svg:hover{
+    color: aqua;
+}
+.recommend-item-name, .recommend-item-artist-name{
+    cursor: pointer;
+}
+.lyric-song{
+    width: 80%;
+    max-width: 80%;
+    margin: 30px  auto;
+    padding: 15px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+}
+.lyric-song .lyric-info-song .lyric-name-song{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 800;
+}
+
+.lyric-song .lyric-sym{
+    line-height: 20px;
+    color: #fff;
+}
+.recommend-list{
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    max-width: 80%;
+    width: 80%;
+    height: 250px;
+    overflow: auto;
+    
+}
+
+
+.container{
+    margin: 30px auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    max-width: 90%;
+    width: 90%;
+}
+.container .music_details{
+    display: flex;
+}
+.container .music_details .music_detail_left{
+    display: flex;
+    flex-direction: column;
+
+}
+.container .music_details .music_detail_left img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius:12px;
+}
+.container .music_details .image{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .music_details img{
+    cursor: pointer;
+}
+.container .music_details .numberit{
+    position: absolute;
+}
+.container .music_details .row-active{
+    opacity: .8;
+    background-color: hsla(0,0%,100%,0.1);
+}
+.music_details_title{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    margin: 10px 0;
+}
+.music_details_date, .detail_artist ,.like{
+    text-align: center;
+    margin-top: 5px;
+}
+.detail-like{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.detail-like-btn{
+    background-color: #2f2739;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 24px;
+    border: 1px solid #ccc;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
